@@ -1,36 +1,68 @@
 /** 
-* Class Calculator can take actions: + , pow , undo result. 
+* Calculator can take actions: + ,- ,* ,/ ,clean result 
 */
 public class Calculator{
 	/**
-	*field result - result actions of calculator;
+	* field result - result actions of calculator
 	*/
 	private int result;
 	/**
-	* @param first - first number for calculation;
-	* @param second - second number for calculation;
-	* method add - adds first and second number, after adds to result;
+	* Adds numbers
+	* @param params - list of numbers for adding
 	*/
-	public void add(int first, int second){
-		
-			this.result += first+second;
+	public void add(int ... params){
+		if(this.result == 0){this.result = params[0];}
+		else{this.result += params[0];}
+		for(int i = 1; i < params.length; i++){
+			this.result += params[i];
+		}
 	}
 	/**
-	* @param base - base of degree;
-	* @param exp - exponent;
-	* method degree - calculate:  result + base^exp;
+	* Subtracts numbers
+	* @param params - list of numbers for subtraction
 	*/
-	public void degree(int base, int exp){
-			//this.result = Math.pow(base,exp);
+	public void sub(int ... params){
+		if(this.result == 0){this.result = params[0];}
+		else{this.result -= params[0];}
+		for(int i = 1; i < params.length; i++){
+			this.result -= params[i];
+		}
 	}
 	/**
-	* method getResult() @return result of calculation;
+	* Multiplies numbers
+	* @param params - list of numbers for multiplication
+	*/
+	public void mult(int ... params){
+		if(this.result == 0){this.result = params[0];}
+		else{this.result *= params[0];}
+		for(int i = 1; i < params.length; i++){
+			this.result *= params[i];
+		}
+	}
+	/**
+	* Divides numbers
+	* @param params - list of numbers for division
+	*/
+	public void div(int ... params) throws Exception{
+		if(this.result == 0){this.result = params[0];}
+		else{this.result /= params[0];}
+		for(int i = 1; i < params.length; i++){
+			if( params[i] == 0 ){
+				this.result = 0;
+				throw new Exception("division by zero!");
+				}
+			this.result /= params[i];
+		}
+	}
+	/**
+	* Gets result
+	* @return result of calculation
 	*/
 	public int getResult(){
 		return this.result;
 	}
 	/**
-	* method cleanResult() undos result; 
+	* Cleans result
 	*/
 	public void cleanResult(){
 		this.result = 0 ;
