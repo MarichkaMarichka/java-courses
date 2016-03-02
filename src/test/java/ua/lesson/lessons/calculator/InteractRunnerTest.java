@@ -1,10 +1,6 @@
 package ua.lesson.lessons.calculator;
 
 import org.junit.Test;
-import ua.lesson.lessons.InputStub;
-import ua.lesson.lessons.OutputStub;
-import ua.lesson.lessons.calculator.Calculator;
-import ua.lesson.lessons.calculator.InteractRunner;
 import ua.lesson.lessons.io.Input;
 import ua.lesson.lessons.io.Output;
 import static org.junit.Assert.*;
@@ -20,7 +16,7 @@ public class InteractRunnerTest {
     public void testAction() throws Exception {
         //assign
         final Output out = new OutputStub();
-        final Input in = new InputStub(Arrays.asList("1","+","1","no","yes").iterator(), out);
+        final Input in = new InputStub(Arrays.asList("1","1","+","no","yes").iterator(), out);
         final Calculator calc = new Calculator();
         final InteractRunner interact = new InteractRunner(out,in,calc);
         //action
