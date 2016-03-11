@@ -61,14 +61,9 @@ public class Calculator{
 		public String operation() {
 			return "/";
 		}
-		public int arithmetical(int first, int second) {
-			if(second!=0){
-				return first / second;
-			}
-			else {
-				throw new ArithmeticException();
-			}
-
+		public int arithmetical(int first, int second)  {
+			int temp = first/second;
+			return temp;
 		}
 	}
 	/**

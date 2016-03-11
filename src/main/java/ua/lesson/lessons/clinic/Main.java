@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class Main  {
     public static void main(String [] arg)throws Exception{
         final Output out = new OutputStub();
-        final Input in = new InputStub(Arrays.asList("1","1","+").iterator(), out);
+        final Input in = new InputStub(Arrays.asList("1","1","1").iterator(), out);
 
         Clinic clinic = new Clinic(out, in);
         Active active = new Active(out,clinic);
