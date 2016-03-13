@@ -13,11 +13,19 @@ import java.util.Scanner;
 public class   Clinic {
 	private final Output output;
 	private final Input input;
+	Client client;
 	Clinic(Output output, Input input){
 		this.output = output;
 		this.input = input;
 	}
 	final Client[]clients = new Client[100];
+	public void initClinic(){
+		client = new Client("Mary","Murchik","cat");
+		clients[0] = client;
+		client = new Client("Max","Rex","dog");
+		clients[1] = client;
+
+	}
 	
 
 	/**
@@ -25,14 +33,13 @@ public class   Clinic {
 	 * @return index of massive
 	 * @throws Exception if massive is full(Clinic is full)
 	 */
-	public int lookForFree() throws Exception {
+	public int lookForFree()  {
 		int index = 0;
 		for(int i = 0; i<clients.length; i++){
 			if(clients[i] == null){
 				index = i;
 				break;
 			}
-			else throw new Exception();
 		}
 		return index;
 	}
@@ -53,15 +60,13 @@ public class   Clinic {
 	 * @param name - client name 
 	 * @return data about client of Clinic
 	 */
-	public Client searchByClientName(String name) throws Exception {
-		Client client = null;
+	public Client searchByClientName(String name){
+		client = null;
 		for(int i = 0; i < clients.length; i++){
 			if(name.equals(clients[i].getClientName())){
 				client = clients[i];
 				break;
 			}
-			/** if person is not registred or client entered incorrectly name */
-			else throw new Exception();
 		}
 		return client;
 	}
@@ -70,15 +75,13 @@ public class   Clinic {
 	 * @param name - client name 
 	 * @return data about client of Clinic
 	 */
-	public Client searchByPetName(String name) throws Exception {
-		Client client = null;
+	public Client searchByPetName(String name) {
+		client = null;
 		for(int i = 0; i < clients.length; i++){
 			if(name.equals(clients[i].getPetName())){
 				client = clients[i];
 				break;
 			}
-			/** if person is not registred or client entered incorrectly name pet */
-			else throw new Exception();
 		}
 		return client;
 	}
