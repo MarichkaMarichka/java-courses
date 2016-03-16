@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class InteractRunnerTest {
 
     @Test
-    public void testAction() throws Exception {
+    public void testAction()  {
         //assign
         final Output out = new OutputStub();
         final Input in = new InputStub(Arrays.asList("1","1","+","no","yes").iterator(), out);
